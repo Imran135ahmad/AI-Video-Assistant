@@ -1,0 +1,38 @@
+# --- Core UI ---
+streamlit>=1.36.0
+
+# --- Audio acquisition ---
+yt-dlp>=2024.8.6          # pulls audio from YouTube URLs
+pydub>=0.25.1              # audio format handling/conversion
+# NOTE: ffmpeg must be installed separately as a system binary (not pip).
+# Linux: apt install ffmpeg | Mac: brew install ffmpeg | Windows: choco install ffmpeg
+
+# --- Transcription (local Whisper) ---
+openai-whisper>=20231117   # local whisper model (CPU/GPU)
+torch>=2.2.0                # required by whisper; install GPU build manually if you have CUDA
+
+# --- Translation (Hindi -> English), pick ONE approach ---
+# Option A: use Whisper's built-in translate task (Hindi->English only, no extra dependency)
+# Option B: if you need a dedicated translation model, uncomment below
+# transformers>=4.42.0
+# sentencepiece>=0.2.0
+# sacremoses>=0.1.1
+
+# --- LangChain + Mistral ---
+langchain>=0.2.11
+langchain-core>=0.2.24
+langchain-mistralai>=0.1.12
+langchain-community>=0.2.10
+
+# --- RAG: vector store + embeddings ---
+chromadb>=0.5.5
+langchain-huggingface>=0.0.3
+sentence-transformers>=3.0.1
+
+# --- PDF / TXT export ---
+fpdf2>=2.7.9               # lightweight PDF generation
+# reportlab>=4.2.0          # alternative if you need more advanced PDF layout
+
+# --- Utilities ---
+python-dotenv>=1.0.1        # for managing the Mistral API key
+tiktoken>=0.7.0              # token counting if you chunk transcripts
